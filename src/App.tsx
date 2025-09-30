@@ -97,7 +97,7 @@ export default function App() {
 //       console.log(tokens)
 //         if (tokens) {
 //           try {
-//             const res  = await axios.get("http://localhost:8000/api/profile", {
+//             const res  = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile", {
 //               headers: {Authorization: `token ${tokens}`}
 //             });
 //             setUser(res.data)

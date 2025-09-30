@@ -35,7 +35,7 @@ export default function AdminTransactions() {
 
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/transaction/admin/all",
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/transaction/admin/all`,
           { headers: { "x-auth-token": token } }
         );
         setTransactions(res.data);

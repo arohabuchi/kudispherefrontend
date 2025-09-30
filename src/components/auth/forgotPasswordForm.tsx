@@ -54,7 +54,7 @@ export default function ForgotPasswordForm() {
     setIsError(false);
     
     try {
-      await axios.post("http://localhost:8000/api/forgot-password", { email });
+      await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/forgot-password`, { email });
       // If the request is successful, redirect to the OTP verification page
       navigate("/forgot-password-link-sent");
     } catch (err) {

@@ -152,7 +152,7 @@ const TransactionTable: React.FC = () => {
         const token = localStorage.getItem("token");
         if (!token) return;
 
-        const res = await fetch("http://localhost:8000/api/profile", {
+        const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
           headers: {
             "x-auth-token": token,
             "Content-Type": "application/json",

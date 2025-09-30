@@ -29,7 +29,7 @@ export default function UserDropdown() {
 
       if (token) {
         try {
-          const res = await axios.get("http://localhost:8000/api/profile", {
+          const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
             headers: { "x-auth-token": token },
           });
           setUser(res.data); // save user

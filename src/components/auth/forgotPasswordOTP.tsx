@@ -85,7 +85,7 @@ export default function OtpForm() {
     const finalOtp = otp.join("");
 
     try {
-      const res = await axios.post("http://localhost:8000/api/verify-otp", {
+      const res = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/verify-otp`, {
         email,
         otp: finalOtp
       });
@@ -107,7 +107,7 @@ export default function OtpForm() {
     setMessage("");
     setIsError(false);
     try {
-      await axios.post("http://localhost:8000/api/resend-otp", { email });
+      await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/resend-otp`, { email });
       setTimer(60);
       setMessage("A new OTP has been sent to your email.");
       setIsError(false);
@@ -276,7 +276,7 @@ export default function OtpForm() {
 //     const finalOtp = otp.join("");
 
 //     try {
-//       const res = await axios.post("http://localhost:8000/api/verify-otp", {
+//       const res = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/verify-otp`, {
 //         email,
 //         otp: finalOtp
 //       });
@@ -296,7 +296,7 @@ export default function OtpForm() {
 //     setMessage("");
 //     setIsError(false);
 //     try {
-//       await axios.post("http://localhost:8000/api/resend-otp", { email });
+//       await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/resend-otp`, { email });
 //       setTimer(60);
 //       setMessage("A new OTP has been sent to your email.");
 //       setIsError(false);

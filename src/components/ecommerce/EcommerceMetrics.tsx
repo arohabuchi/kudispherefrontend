@@ -369,7 +369,7 @@ const BankWithdrawalModal = ({ isOpen, onClose, withdrawalAmount }) => {
   useEffect(() => {
     const fetchBankDetails = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/admin/bank-details/first");
+        const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`);
         if (res.data?.bankDetails) {
           const fee = res.data.bankDetails.feePerUSDT || 0;
           setFeePerUSDT(fee);
@@ -386,7 +386,7 @@ const BankWithdrawalModal = ({ isOpen, onClose, withdrawalAmount }) => {
   const fetchUserId = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:8000/api/profile", {
+      const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
         headers: { "x-auth-token": token },
       });
       setUserId(res.data._id); // ✅ save logged-in user id
@@ -506,7 +506,7 @@ const CryptoWithdrawalModal = ({ isOpen, onClose, withdrawalAmount }) => {
   useEffect(() => {
     const fetchCryptoDetails = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/admin/bank-details/first");
+        const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`);
         console.log(res.data.bankDetails.feePerUSDT)
         if (res.data?.bankDetails) {
           const fee = res.data.bankDetails.feePerUSDT;
@@ -526,7 +526,7 @@ const CryptoWithdrawalModal = ({ isOpen, onClose, withdrawalAmount }) => {
   const fetchUserId = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:8000/api/profile", {
+      const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
         headers: { "x-auth-token": token },
       });
       setUserId(res.data._id); // ✅ save logged-in user id
@@ -645,7 +645,7 @@ const CryptoWithdrawalModal = ({ isOpen, onClose, withdrawalAmount }) => {
 
 //   useEffect(() => {
 //     if (isOpen) {
-//       axios.get("http://localhost:8000/api/admin/bank-details/first")
+//       axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first")
 //         .then(res => {
 //           setFeePerUSDT(res.data.bankDetails.feePerUSDT || 0);
 //           setUsdtRate(res.data.bankDetails.usdtRate || 0);
@@ -767,7 +767,7 @@ const CryptoWithdrawalModal = ({ isOpen, onClose, withdrawalAmount }) => {
 
 //   useEffect(() => {
 //     if (isOpen) {
-//       axios.get("http://localhost:8000/api/admin/bank-details/first")
+//       axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first")
 //         .then(res => {
 //           setFeePerUSDT(res.data.bankDetails.feePerUSDT || 0);
 //           setUsdtRate(res.data.bankDetails.usdtRate || 0);
@@ -1115,7 +1115,7 @@ export default function EcommerceMetrics() {
       if (!token) throw new Error("No token found");
 
       // NOTE: Using localhost:8000 for API calls as per original code
-      const res = await fetch("http://localhost:8000/api/profile", {
+      const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
         headers: {
           "x-auth-token": token,
           "Content-Type": "application/json",
@@ -1141,7 +1141,7 @@ export default function EcommerceMetrics() {
 
     setIsBankLoading(true);
     try {
-        const res = await fetch("http://localhost:8000/api/admin/bank-details/first", {
+        const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`, {
             headers: { "Content-Type": "application/json" },
         });
 
@@ -1300,7 +1300,7 @@ export default function EcommerceMetrics() {
   useEffect(() => {
     const fetchCoinTypes = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/images/coin-types", {
+        const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/coin-types`, {
           headers: {
             "Content-Type": "application/json",
             "x-auth-token": localStorage.getItem("token"),
@@ -1946,7 +1946,7 @@ export default function EcommerceMetrics() {
 //       const token = localStorage.getItem("token");
 //       if (!token) throw new Error("No token found");
 
-//       const res = await fetch("http://localhost:8000/api/profile", {
+//       const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile", {
 //         headers: {
 //           "x-auth-token": token,
 //           "Content-Type": "application/json",
@@ -1975,7 +1975,7 @@ export default function EcommerceMetrics() {
 //     try {
 //         // NOTE: Assuming this endpoint is publicly accessible or secured via other means
 //         // The original logic assumes this endpoint returns bank details needed for the modal
-//         const res = await fetch("http://localhost:8000/api/admin/bank-details/first", {
+//         const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first", {
 //             headers: {
 //                 "Content-Type": "application/json",
 //             },
@@ -2062,7 +2062,7 @@ export default function EcommerceMetrics() {
 //   useEffect(() => {
 //     const fetchCoinTypes = async () => {
 //       try {
-//         const res = await fetch("http://localhost:8000/api/images/coin-types", {
+//         const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/coin-types", {
 //           headers: {
 //             "Content-Type": "application/json",
 //             "x-auth-token": localStorage.getItem("token"),
@@ -2661,7 +2661,7 @@ export default function EcommerceMetrics() {
 // //       const token = localStorage.getItem("token");
 // //       if (!token) throw new Error("No token found");
 
-// //       const res = await fetch("http://localhost:8000/api/profile", {
+// //       const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile", {
 // //         headers: {
 // //           "x-auth-token": token,
 // //           "Content-Type": "application/json",
@@ -2689,7 +2689,7 @@ export default function EcommerceMetrics() {
 // //     setIsBankLoading(true);
 // //     try {
 // //         // NOTE: Assuming this endpoint is publicly accessible or secured via other means
-// //         const res = await fetch("http://localhost:8000/api/admin/bank-details/first", {
+// //         const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first", {
 // //             headers: {
 // //                 "Content-Type": "application/json",
 // //             },
@@ -2720,7 +2720,7 @@ export default function EcommerceMetrics() {
 // //   useEffect(() => {
 // //     const fetchCoinTypes = async () => {
 // //       try {
-// //         const res = await fetch("http://localhost:8000/api/images/coin-types", {
+// //         const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/coin-types", {
 // //           headers: {
 // //             "Content-Type": "application/json",
 // //             "x-auth-token": localStorage.getItem("token"),
@@ -3256,7 +3256,7 @@ export default function EcommerceMetrics() {
 // // //       const token = localStorage.getItem("token");
 // // //       if (!token) throw new Error("No token found");
 
-// // //       const res = await fetch("http://localhost:8000/api/profile", {
+// // //       const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile", {
 // // //         headers: {
 // // //           "x-auth-token": token,
 // // //           "Content-Type": "application/json",
@@ -3284,7 +3284,7 @@ export default function EcommerceMetrics() {
 // // //   useEffect(() => {
 // // //     const fetchCoinTypes = async () => {
 // // //       try {
-// // //         const res = await fetch("http://localhost:8000/api/images/coin-types", {
+// // //         const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/coin-types", {
 // // //           headers: {
 // // //             "Content-Type": "application/json",
 // // //             "x-auth-token": localStorage.getItem("token"),

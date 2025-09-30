@@ -30,7 +30,7 @@ export default function ChangePasswordCard() {
         return;
       }
 
-      const res = await fetch("http://localhost:8000/api/change-password", {
+      const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/change-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

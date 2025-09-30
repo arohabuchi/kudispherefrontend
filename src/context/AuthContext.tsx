@@ -35,7 +35,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     if (token) {
       axios
-        .get("http://localhost:8000/api/profile", {
+        .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
           headers: { "x-auth-token": token },  // 👈 use x-auth-token
         })
         .then((res) => setUser(res.data))
@@ -133,7 +133,7 @@ export const useAuth = () => {
 
 //   const signIn = async (formData) => {
 //     try {
-//       const res = await axios.post("http://localhost:8000/api/signin", formData);
+//       const res = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/signin``, formData);
 //       // The fix: store the token and set the user from the response data.
 //       localStorage.setItem("token", res.data.token);
 //       // Assuming your signin API returns `{ token: '...', user: { ... } }`
