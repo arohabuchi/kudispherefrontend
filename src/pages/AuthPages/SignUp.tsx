@@ -22,6 +22,7 @@ export default function SignUp() {
           } catch (err) {
             setError("Failed to fetch user data");
             localStorage.removeItem("token")
+            console.log(error)
           }
         }
       };

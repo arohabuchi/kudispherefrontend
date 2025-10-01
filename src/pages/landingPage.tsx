@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Navbar from '../components/landingComponoent/navbar'
 import Footer from '../components/landingComponoent/footer'
 import Hero from '../components/landingComponoent/hero'

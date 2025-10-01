@@ -5,10 +5,18 @@ import SignInForm from "../components/auth/SignInForm";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 import axios from "axios"; 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; 
+
+interface User {
+  name: string;
+  email: string;
+}
+
+
+
 
 export default function SignIn() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState("");
   const navigate = useNavigate(); // Initialize the hook
 
@@ -50,7 +58,7 @@ export default function SignIn() {
       <AuthLayout>
         {user ? (
           <div>
-            <h2>Welcome, {user.name}!</h2>
+            <h2>Welcome, {user?.firstName}!</h2>
             <button onClick={handleSignOut}>Sign Out</button>
           </div>
         ) : (
