@@ -15,7 +15,7 @@ export default function MonthlySalesChart() {
   useEffect(() => {
     const fetchBankDetails = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`);
+        const res = await fetch(`http://localhost:8000/api/admin/bank-details/first`);
         if (!res.ok) throw new Error("Failed to fetch bank details");
         const data: BankDetails = await res.json();
         setUsdtRate(data.bankDetails.usdtRate);

@@ -2,6 +2,30 @@ import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
+
+// 👤 User type (based on your mongoose model)
+export interface ProfileAddress {
+  country?: string;
+  state?: string;
+  homeAddress?: string;
+  phoneNumber?: string;
+}
+
+export interface User {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: "user" | "admin";
+  isVerified: boolean;
+  amount: number;
+  payout: number;
+  profileAddress?: ProfileAddress;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
 // 🔑 Add axios interceptor so every request has x-auth-token
 axios.interceptors.request.use(
   (config) => {
@@ -15,7 +39,7 @@ axios.interceptors.request.use(
 );
 
 interface AuthContextType {
-  user: any;
+  user:  User | null;
   token: string | null;
   isLoading: boolean;
   error: string;
@@ -26,7 +50,8 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<any>(null);
+  
+  const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(localStorage.getItem("token"));
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
@@ -35,7 +60,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     if (token) {
       axios
-        .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
+        .get(`http://localhost:8000/api/profile`, {
           headers: { "x-auth-token": token },  // 👈 use x-auth-token
         })
         .then((res) => setUser(res.data))
@@ -70,92 +95,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     </AuthContext.Provider>
   );
 };
-
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
   const ctx = useContext(AuthContext);
   if (!ctx) throw new Error("useAuth must be used within AuthProvider");
   return ctx;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // src/contexts/AuthContext.tsx
-// import React, { createContext, useState, useEffect, useContext } from 'react';
-// import axios from 'axios';
-
-// const AuthContext = createContext(null);
-
 // export const useAuth = () => {
-//   return useContext(AuthContext);
-// };
-
-// export const AuthProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   useEffect(() => {
-//     const fetchUser = async () => {
-//       const token = localStorage.getItem("token");
-//       if (token) {
-//         try {
-//           // This endpoint should return the user's data based on the token
-//           const res = await axios.get('http://localhost:8000/', {
-//             headers: { Authorization: `Token ${token}` }
-//           });
-//           // Assuming your backend returns the user object directly
-//           setUser(res.data);
-//         } catch (err) {
-//           console.error("Failed to fetch user data:", err);
-//           localStorage.removeItem("token");
-//           setUser(null);
-//         }
-//       }
-//       setIsLoading(false);
-//     };
-//     fetchUser();
-//   }, []);
-
-//   const signIn = async (formData) => {
-//     try {
-//       const res = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/signin``, formData);
-//       // The fix: store the token and set the user from the response data.
-//       localStorage.setItem("token", res.data.token);
-//       // Assuming your signin API returns `{ token: '...', user: { ... } }`
-//       setUser(res.data.user); 
-//     } catch (err) {
-//       const errorMsg = err.response?.data?.message || "Login Failed";
-//       throw new Error(errorMsg);
-//     }
-//   };
-
-//   const signOut = () => {
-//     localStorage.removeItem("token");
-//     setUser(null);
-//   };
-
-//   const value = {
-//     user,
-//     isLoading,
-//     signIn,
-//     signOut,
-//     setUser,
-//   };
-
-//   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+//   const ctx = useContext(AuthContext);
+//   if (!ctx) throw new Error("useAuth must be used within AuthProvider");
+//   return ctx;
 // };

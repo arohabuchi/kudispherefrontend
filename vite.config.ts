@@ -19,7 +19,7 @@ export default defineConfig({
   server:{
     proxy:{
       "/api":{
-        target:"https://kudispherebackend.vercel.app"
+        target:"http://localhost:8000"
       }
     }
   }

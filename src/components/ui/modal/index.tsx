@@ -5,6 +5,7 @@ interface ModalProps {
   onClose: () => void;
   className?: string;
   children: React.ReactNode;
+  title?: string;
   showCloseButton?: boolean; // New prop to control close button visibility
   isFullscreen?: boolean; // Default to false for backwards compatibility
 }

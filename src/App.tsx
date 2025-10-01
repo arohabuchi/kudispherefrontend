@@ -17,6 +17,10 @@ import { ScrollToTop } from "./components/common/ScrollToTop";
 import NewPasswordforgetPasswordform from "./components/auth/newPasswordforgetPasswordform";
 import ForgotPasswordLinkSent from "./components/auth/forgotpasswordlinksent";
 import AdminTransactionsList from "./components/UserProfile/AdminTransactionUpdatePage";
+import AdminBankDetailCard from "./components/UserProfile/AdminBankDetailCard";
+import CreateAdminBankDetailCard from "./components/UserProfile/CreateAdminBankDetailCard";
+import ImageUploadForm from "./components/UserProfile/ImageUploadForm";
+import AdminCoinManager from "./components/UserProfile/AdminCoinManager";
           // import ResetPasswordForm from "./components/auth/ResetPasswordForm";
 
 export default function App() {
@@ -33,6 +37,11 @@ export default function App() {
               <Route path="/security" element={<SecurityPage />} />
               <Route path="/support" element={<SupportPage />} />
               <Route path="/admin-trnsaction-list-all" element={<AdminTransactionsList />} />
+              <Route path="/admin-bank-detail" element={<AdminBankDetailCard />} />
+              <Route path="/admin-coin-upload" element={<ImageUploadForm />} />
+              <Route path="/admin-coin-manager" element={<AdminCoinManager />} />
+              <Route path="/create-admin-bank-detail" element={<CreateAdminBankDetailCard
+               />} />
             </Route>
           </Route>
 
@@ -52,101 +61,3 @@ export default function App() {
     </Router>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { BrowserRouter as Router, Routes, Route } from "react-router";
-// // import SignIn from "./pages/AuthPages/SignIn";
-// import SignInForm from "./pages/AuthPages/SignIn";
-// import SignUp from "./pages/AuthPages/SignUp";
-// import NotFound from "./pages/OtherPage/NotFound";
-// import UserProfiles from "./pages/UserProfiles";
-// import { useEffect, useState } from "react";
-// import LandingPage from "./pages/landingPage";
-// import AppLayout from "./layout/AppLayout";
-// import { ScrollToTop } from "./components/common/ScrollToTop";
-// import Dashboard from "./pages/Dashboard/Home";
-// import SecurityPage from "./pages/security";
-// import SupportPage from "./pages/SupportPage";
-// import axios from "axios";
-// import ForgotPasswordForm from "./components/auth/forgotPasswordForm";
-// import OtpForm from "./components/auth/forgotPasswordOTP";
-// export default function App() {
-//   const [user, setUser]= useState(null);
-//   const [error, setError]= useState("");
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   useEffect(()=>{
-//     const fetchUser= async ()=>{
-//       const tokens =localStorage.getItem("token");
-//       console.log(tokens)
-//         if (tokens) {
-//           try {
-//             const res  = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile", {
-//               headers: {Authorization: `token ${tokens}`}
-//             });
-//             setUser(res.data)
-//             console.log(res.data)
-//           } catch (err) {
-//             setError("Failed to fetch user data");
-//             // localStorage.removeItem("token")
-//           }finally {
-//           setIsLoading(false); // Set loading to false after the fetch is complete
-//         }
-//       } else {
-//         setIsLoading(false); // Also set loading to false if no token is found
-//       }
-//     };
-//     fetchUser();
-//   }, []);
-
-  
-//   return (
-//     <>
-    
-//       <Router>
-//         <ScrollToTop />
-//         <Routes>
-//           {/* Dashboard Layout */}
-          
-//           <Route element={<AppLayout />}>
-//             <Route index path="/dashboard" element={<Dashboard />} />
-
-//             {/* Others Page */}
-//             <Route path="/profile" element={<UserProfiles />} />
-//             <Route path="/Security" element={<SecurityPage />} />
-//             <Route path="/support" element={<SupportPage />} />
-
-
-//           </Route>
-
-//           {/* Auth Layout */}
-
-//           <Route path="/signin" element={<SignInForm />} />
-//           <Route path="/signup" element={<SignUp />} />
-//           <Route path="/" element={<LandingPage />} />
-//           <Route path="/forgot-password" element={<ForgotPasswordForm />} />
-//           <Route path="/verify-forgot-password-otp" element={<OtpForm />} />
-
-//           {/* Fallback Route */}
-//           <Route path="*" element={<NotFound />} />
-//         </Routes>
-//       </Router>
-//     </>
-//   );
-// }

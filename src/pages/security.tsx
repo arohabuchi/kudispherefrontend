@@ -3,7 +3,7 @@ import PageBreadcrumb from "../components/common/PageBreadCrumb";
 import SecurityCard from "../components/security/SecurityCard";///FraudDetectionCard
 import FraudDetectionCard from "../components/security/fraudCard";///ChangePasswordCard
 import ChangePasswordCard from "../components/security/ChangePasswordCard";///
-import { FaShieldAlt, FaLock, FaFingerprint, FaUserCheck } from "react-icons/fa"; // Using react-icons for a simple example.
+import { FaShieldAlt, FaLock, FaFingerprint } from "react-icons/fa"; // Using react-icons for a simple example.
 
 export default function SecurityPage() {
   return (  
