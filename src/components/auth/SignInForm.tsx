@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import axios from "axios";
-import { Link, useNavigate } from "react-router";
-import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "../../icons";
+import { Link } from "react-router";
+import {EyeCloseIcon, EyeIcon } from "../../icons";
 import Label from "../form/Label";
 import Input from "../form/input/InputField";
-import Checkbox from "../form/input/Checkbox";
 import Button from "../ui/button/Button";
 
 export default function SignInForm() {
@@ -15,7 +14,7 @@ export default function SignInForm() {
   
 // export default function SignInForm({ setUser }: SignInProps) {
   const [showPassword, setShowPassword] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
 
 //   const [formData, setFormData] = useState({
 //     email:"",

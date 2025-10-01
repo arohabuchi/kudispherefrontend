@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Chart from "react-apexcharts";
-import { ApexOptions } from "apexcharts";
+import { useEffect, useState } from "react";
 
 // ----------------- Types -----------------
 interface CryptoData {
@@ -14,46 +12,7 @@ interface CryptoData {
   price_change_percentage_24h: number;
 }
 
-// ----------------- Chart Options -----------------
-const chartOptions: ApexOptions = {
-  chart: {
-    height: 350,
-    type: "area",
-    toolbar: { show: false },
-  },
-  colors: ["#6366F1", "#9CA3AF", "#465FFF", "#9CB9FF", "#34D399"],
-  stroke: { curve: "smooth", width: 2 },
-  dataLabels: { enabled: false },
-  legend: { show: false },
-  grid: { show: false },
-  xaxis: {
-    type: "category",
-    categories: [
-      "12 AM", "2 AM", "4 AM", "6 AM", "8 AM", "10 AM",
-      "12 PM", "2 PM", "4 PM", "6 PM", "8 PM", "10 PM",
-    ],
-    labels: { show: false },
-    axisBorder: { show: false },
-    axisTicks: { show: false },
-    tooltip: { enabled: false },
-  },
-  yaxis: { labels: { show: false } },
-};
 
-const chartSeries = [
-  {
-    name: "Bitcoin",
-    data: [30, 40, 35, 50, 49, 60, 70, 91, 125, 100, 110, 130],
-  },
-  {
-    name: "Ethereum",
-    data: [20, 30, 25, 40, 39, 50, 60, 81, 105, 80, 90, 110],
-  },
-  {
-    name: "Ripple",
-    data: [15, 20, 18, 25, 22, 30, 40, 50, 60, 55, 65, 75],
-  },
-];
 
 // ----------------- Component -----------------
 export default function LiveCryptoPricesCard() {
