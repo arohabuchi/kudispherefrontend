@@ -53,7 +53,7 @@ export default function UserMetaCard() {
 
       if (token) {
         try {
-          const res = await axios.get<User>(`http://localhost:8000/api/profile`, {
+          const res = await axios.get<User>(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
             headers: { "x-auth-token": token },
           });
           console.log("Fetched user:", res.data);
@@ -195,7 +195,7 @@ export default function UserMetaCard() {
 
 //       if (token) {
 //         try {
-//           const res = await axios.get(`http://localhost:8000/api/profile`, {
+//           const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
 //             headers: { "x-auth-token": token },
 //           });
 //           console.log("Fetched user:", res.data);

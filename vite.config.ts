@@ -19,7 +19,7 @@ export default defineConfig({
   server:{
     proxy:{
       "/api":{
-        target:"http://localhost:8000"
+        target:"${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}"
       }
     }
   }

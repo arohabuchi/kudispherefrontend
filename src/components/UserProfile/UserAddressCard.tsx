@@ -70,7 +70,7 @@ export default function UserAddressCard({
 
       // Update backend
       const res = await axios.put<Address>(
-        `http://localhost:8000/api/edit-address`,
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/edit-address`,
         formData,
         {
           headers: { "x-auth-token": token },
@@ -242,7 +242,7 @@ export default function UserAddressCard({
 //       }
 
 //       // Update backend
-//       const res = await axios.put(`http://localhost:8000/api/edit-address`, formData, {
+//       const res = await axios.put(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/edit-address`, formData, {
 //         headers: { "x-auth-token": token },
 //       });
 

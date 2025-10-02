@@ -233,7 +233,7 @@ interface ModalProps {
 //       // but in a real app, replace alert() with a custom modal UI.
 //       const token = localStorage.getItem("token");
 
-//       const res = await fetch(`http://localhost:8000/api/${userId}/deposit`, {
+//       const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/deposit`, {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",
@@ -315,7 +315,7 @@ interface ModalProps {
 //             <div>
 //               {coinData?.image ? (
 //                 <img
-//                   src={`http://localhost:8000/${coinData.image}`}
+//                   src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/${coinData.image}`}
 //                   alt={`${coinData.name} QR Code`}
 //                   className="w-36 h-36"
 //                   onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/144x144/22c55e/ffffff?text=QR+Code+Missing" }} // Added fallback
@@ -385,7 +385,7 @@ interface PaymentModalProps {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`http://localhost:8000/api/${userId}/deposit`, {
+      const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/deposit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -467,7 +467,7 @@ interface PaymentModalProps {
             <div>
               {coinData?.image ? (
                 <img
-                  src={`http://localhost:8000/${coinData.image}`}
+                  src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/${coinData.image}`}
                   alt={`${coinData.name} QR Code`}
                   className="w-36 h-36"
                   onError={(e) => {
@@ -829,7 +829,7 @@ interface BankPaymentModalProps {
 //   useEffect(() => {
 //     const fetchBankDetails = async () => {
 //       try {
-//         const res = await axios.get(`http://localhost:8000/api/admin/bank-details/first`);
+//         const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`);
 //         if (res.data?.bankDetails) {
 //           const fee = res.data.bankDetails.feePerUSDT || 0;
 //           setFeePerUSDT(fee);
@@ -846,7 +846,7 @@ interface BankPaymentModalProps {
 //   const fetchUserId = async () => {
 //     try {
 //       const token = localStorage.getItem("token");
-//       const res = await axios.get(`http://localhost:8000/api/profile`, {
+//       const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
 //         headers: { "x-auth-token": token },
 //       });
 //       setUserId(res.data._id); // ✅ save logged-in user id
@@ -866,7 +866,7 @@ interface BankPaymentModalProps {
 
 //     setIsSubmitting(true);
 //     try {
-//       await axios.post(`http://localhost:8000/api/${userId}/withdraw/bank`, {
+//       await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/withdraw/bank`, {
 //         amount: withdrawalAmount,
 //         bankName,
 //         accountNumber,
@@ -976,7 +976,7 @@ interface BankWithdrawalModalProps {
     const fetchBankDetails = async (): Promise<void> => {
       try {
         const res = await axios.get<{ bankDetails?: { feePerUSDT?: number } }>(
-          `http://localhost:8000/api/admin/bank-details/first`
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`
         );
         if (res.data?.bankDetails) {
           const fee = res.data.bankDetails.feePerUSDT || 0;
@@ -998,7 +998,7 @@ interface BankWithdrawalModalProps {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get<{ _id: string }>(
-          `http://localhost:8000/api/profile`,
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`,
           {
             headers: { "x-auth-token": token || "" },
           }
@@ -1026,7 +1026,7 @@ interface BankWithdrawalModalProps {
 
     setIsSubmitting(true);
     try {
-      await axios.post(`http://localhost:8000/api/${userId}/withdraw/bank`, {
+      await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/withdraw/bank`, {
         amount: withdrawalAmount,
         bankName,
         accountNumber,
@@ -1129,7 +1129,7 @@ interface BankWithdrawalModalProps {
 //   useEffect(() => {
 //     const fetchCryptoDetails = async () => {
 //       try {
-//         const res = await axios.get(`http://localhost:8000/api/admin/bank-details/first`);
+//         const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`);
 //         console.log(res.data.bankDetails.feePerUSDT)
 //         if (res.data?.bankDetails) {
 //           const fee = res.data.bankDetails.feePerUSDT;
@@ -1149,7 +1149,7 @@ interface BankWithdrawalModalProps {
 //   const fetchUserId = async () => {
 //     try {
 //       const token = localStorage.getItem("token");
-//       const res = await axios.get(`http://localhost:8000/api/profile`, {
+//       const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
 //         headers: { "x-auth-token": token },
 //       });
 //       setUserId(res.data._id); // ✅ save logged-in user id
@@ -1169,7 +1169,7 @@ interface BankWithdrawalModalProps {
 
 //     setIsSubmitting(true);
 //     try {
-//       await axios.post(`http://localhost:8000/api/${userId}/withdraw/crypto`, {
+//       await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/withdraw/crypto`, {
 //         amount: withdrawalAmount,
 //         coinType,
 //         amountToReceive,   // ✅ lowercase (fix)
@@ -1291,7 +1291,7 @@ interface CryptoWithdrawalModalProps {
     const fetchCryptoDetails = async (): Promise<void> => {
       try {
         const res = await axios.get<{ bankDetails?: { feePerUSDT: number } }>(
-          `http://localhost:8000/api/admin/bank-details/first`
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`
         );
         if (res.data?.bankDetails) {
           const fee = res.data.bankDetails.feePerUSDT;
@@ -1313,7 +1313,7 @@ interface CryptoWithdrawalModalProps {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get<{ _id: string }>(
-          `http://localhost:8000/api/profile`,
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`,
           {
             headers: { "x-auth-token": token || "" },
           }
@@ -1341,7 +1341,7 @@ interface CryptoWithdrawalModalProps {
 
     setIsSubmitting(true);
     try {
-      await axios.post(`http://localhost:8000/api/${userId}/withdraw/crypto`, {
+      await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/withdraw/crypto`, {
         amount: withdrawalAmount,
         coinType,
         amountToReceive,
@@ -1470,7 +1470,7 @@ export default function EcommerceMetrics() {
       if (!token) throw new Error("No token found");
 
       // NOTE: Using localhost:8000 for API calls as per original code
-      const res = await fetch(`http://localhost:8000/api/profile`, {
+      const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
         headers: {
           "x-auth-token": token,
           "Content-Type": "application/json",
@@ -1496,7 +1496,7 @@ export default function EcommerceMetrics() {
 
   //   setIsBankLoading(true);
   //   try {
-  //       const res = await fetch(`http://localhost:8000/api/admin/bank-details/first`, {
+  //       const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`, {
   //           headers: { "Content-Type": "application/json" },
   //       });
 
@@ -1519,7 +1519,7 @@ export default function EcommerceMetrics() {
 
   setIsBankLoading(true);
   try {
-    const res = await fetch(`http://localhost:8000/api/admin/bank-details/first`, {
+    const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`, {
       headers: { "Content-Type": "application/json" },
     });
 
@@ -1560,7 +1560,7 @@ export default function EcommerceMetrics() {
   //     const token = localStorage.getItem("token");
   //     if (!token) throw new Error("No token found. Please log in.");
 
-  //     const url = `http://localhost:8000/api/${userId}/bankdeposit`;
+  //     const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/bankdeposit`;
 
   //     const res = await fetch(url, {
   //       method: "POST",
@@ -1622,7 +1622,7 @@ const handleSubmitBankDeposit = async (payload: BankDepositPayload): Promise<voi
     const token = localStorage.getItem("token");
     if (!token) throw new Error("No token found. Please log in.");
 
-    const url = `http://localhost:8000/api/${userId}/bankdeposit`;
+    const url = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/bankdeposit`;
 
     const res = await fetch(url, {
       method: "POST",
@@ -1798,9 +1798,9 @@ const handleTransferNow = (e: React.FormEvent<HTMLFormElement>) => {
           ...(token ? { "x-auth-token": token } : {}), // ✅ only add if not null
         };
         
-        const res = await fetch(`http://localhost:8000/api/images/coin-types`, { headers });
+        const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/coin-types`, { headers });
 
-        // const res = await fetch(`http://localhost:8000/api/images/coin-types`, {
+        // const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/coin-types`, {
         //   headers: {
         //     "Content-Type": "application/json",
         //     "x-auth-token": localStorage.getItem("token"),
@@ -1836,9 +1836,9 @@ const handleTransferNow = (e: React.FormEvent<HTMLFormElement>) => {
           ...(token ? { "x-auth-token": token } : {}), // ✅ only add if not null
         };
 
-        const res = await fetch(`http://localhost:8000/api/images/by-coin/${coinType}`, { headers });
+        const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/by-coin/${coinType}`, { headers });
 
-        // const res = await fetch(`http://localhost:8000/api/images/by-coin/${coinType}`, {
+        // const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/by-coin/${coinType}`, {
         //   headers: {
         //     "Content-Type": "application/json",
         //     "x-auth-token": localStorage.getItem("token"),

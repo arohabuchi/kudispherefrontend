@@ -35,7 +35,7 @@
 //     try {
 //       const token = localStorage.getItem("token");
 
-//       const res = await fetch(`http://localhost:8000/api/${userId}/deposit`, {
+//       const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/deposit`, {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",
@@ -117,7 +117,7 @@
 //             <div>
 //               {coinData?.image ? (
 //                 <img
-//                   src={`http://localhost:8000/${coinData.image}`}
+//                   src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/${coinData.image}`}
 //                   alt={`${coinData.name} QR Code`}
 //                   className="w-36 h-36"
 //                   onError={(e) => {

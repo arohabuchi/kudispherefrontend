@@ -21,7 +21,7 @@ export default function AdminCoinManager() {
   useEffect(() => {
     const fetchCoins = async () => {
       try {
-        const res = await axios.get<AdminCoin[]>("http://localhost:8000/api/images/all");
+        const res = await axios.get<AdminCoin[]>("${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/all");
         setCoins(res.data);
       } catch (err) {
         console.error("Failed to fetch coins:", err);
@@ -49,7 +49,7 @@ export default function AdminCoinManager() {
       setMessage(null);
 
       const res = await axios.put<AdminCoin>(
-        `http://localhost:8000/images/${selectedCoin._id}`,
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/images/${selectedCoin._id}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -86,7 +86,7 @@ export default function AdminCoinManager() {
             className="cursor-pointer rounded-lg border p-4 shadow-sm hover:shadow-md bg-white dark:bg-gray-800 dark:border-gray-700"
           >
             <img
-              src={`http://localhost:8000/${coin.image}`}
+              src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/${coin.image}`}
               alt={coin.name}
               className="h-32 w-full object-contain mb-2"
             />

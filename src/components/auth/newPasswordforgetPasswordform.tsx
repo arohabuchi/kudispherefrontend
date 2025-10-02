@@ -26,7 +26,7 @@ export default function ResetPasswordForm() {
       setMessage(null);
 
       const res = await axios.post<{ msg: string }>(
-        `http://localhost:8000/api/reset-password/${token}`,
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/reset-password/${token}`,
         { password: newPassword }
       );
 
@@ -156,7 +156,7 @@ export default function ResetPasswordForm() {
 //       setMessage(null);
 
 //       const res = await axios.post(
-//         `http://localhost:8000/api/reset-password/${token}`,
+//         `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/reset-password/${token}`,
 //         { password: newPassword }
 //       );
 

@@ -38,7 +38,7 @@
 //     const fetchBankDetails = async () => {
 //       try {
 //         const res = await axios.get<BankDetailsResponse>(
-//           `http://localhost:8000/api/admin/bank-details/first`
+//           `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`
 //         );
 //         if (res.data?.bankDetails) {
 //           const fee = res.data.bankDetails.feePerUSDT || 0;
@@ -59,7 +59,7 @@
 //         const token = localStorage.getItem("token");
 //         if (!token) return;
 //         const res = await axios.get<UserProfileResponse>(
-//           `http://localhost:8000/api/profile`,
+//           `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`,
 //           {
 //             headers: { "x-auth-token": token },
 //           }
@@ -81,7 +81,7 @@
 
 //     setIsSubmitting(true);
 //     try {
-//       await axios.post(`http://localhost:8000/api/${userId}/withdraw/bank`, {
+//       await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/withdraw/bank`, {
 //         amount: withdrawalAmount,
 //         bankName,
 //         accountNumber,

@@ -41,7 +41,7 @@ export default function AdminBankDetailCard() {
       }
 
       const res = await fetch(
-        "http://localhost:8000/api/admin/bank-details/first",
+        "${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first",
         {
           headers: {
             "Content-Type": "application/json",
@@ -110,7 +110,7 @@ export default function AdminBankDetailCard() {
       }
 
       const res = await fetch(
-        `http://localhost:8000/api/admin/bank-details/${bankDetail._id}`,
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/${bankDetail._id}`,
         {
           method: "PUT",
           headers: {

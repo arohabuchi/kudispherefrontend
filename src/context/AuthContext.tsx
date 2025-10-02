@@ -60,7 +60,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     if (token) {
       axios
-        .get(`http://localhost:8000/api/profile`, {
+        .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/profile`, {
           headers: { "x-auth-token": token },  // 👈 use x-auth-token
         })
         .then((res) => setUser(res.data))

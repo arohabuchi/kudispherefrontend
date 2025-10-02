@@ -67,7 +67,7 @@ export default function AdminTransactions() {
 
       try {
         const res = await axios.get<Transaction[]>(
-          `http://localhost:8000/api/transaction/admin/all`,
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/transaction/admin/all`,
           { headers: { "x-auth-token": token } }
         );
         setTransactions(res.data);
@@ -95,7 +95,7 @@ export default function AdminTransactions() {
 
     try {
       const res = await axios.patch<Transaction>(
-        `http://localhost:8000/api/status/${selectedTx._id}`,
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/status/${selectedTx._id}`,
         { status: selectedTx.status }, // ✅ only status is sent
         { headers: { "x-auth-token": token || "" } }
       );
@@ -291,7 +291,7 @@ export default function AdminTransactions() {
 
 //       try {
 //         const res = await axios.get(
-//           `http://localhost:8000/api/transaction/admin/all`,
+//           `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/transaction/admin/all`,
 //           { headers: { "x-auth-token": token } }
 //         );
 //         setTransactions(res.data);
@@ -318,7 +318,7 @@ export default function AdminTransactions() {
 
 //     try {
 //       const res = await axios.patch(
-//         `http://localhost:8000/api/status/${selectedTx._id}`,
+//         `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/status/${selectedTx._id}`,
 //         { status: selectedTx.status }, // ✅ only status is sent
 //         { headers: { "x-auth-token": token } }
 //       );

@@ -44,7 +44,7 @@ export default function ImageUploadForm() {
       setLoading(true);
       setMessage(null);
 
-      const res = await axios.post<UploadResponse>(`http://localhost:8000/api/images`, formData, {
+      const res = await axios.post<UploadResponse>(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
