@@ -38,7 +38,7 @@ export default function CreateAdminBankDetailCard() {
           return;
         }
 
-        const res = await axios.get("http://localhost:8000/api/profile", {
+        const res = await axios.get(`http://localhost:8000/api/profile`, {
           headers: { "x-auth-token": token },
         });
 
@@ -82,7 +82,7 @@ export default function CreateAdminBankDetailCard() {
         return;
       }
 
-      const res = await fetch("http://localhost:8000/api/admin/bank-details", {
+      const res = await fetch(`http://localhost:8000/api/admin/bank-details`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

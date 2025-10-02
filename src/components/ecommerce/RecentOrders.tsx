@@ -152,7 +152,7 @@ const TransactionTable: React.FC = () => {
         const token = localStorage.getItem("token");
         if (!token) return;
 
-        const res = await fetch(`http://localhost:8000/api/profile`, {
+        const res = await fetch("http://localhost:8000/api/profile", {
           headers: {
             "x-auth-token": token,
             "Content-Type": "application/json",
@@ -174,8 +174,15 @@ const TransactionTable: React.FC = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       if (!userId) return;
+      console.log("userid ", userId)
       try {
-        const res = await fetch(`http://localhost:8000/api/transaction/${userId}`);
+        const res = await fetch(`http://localhost:8000/api/transaction/${userId}`, {
+            headers: {
+              "x-auth-token": localStorage.getItem("token") || "",
+              "Content-Type": "application/json",
+            },
+          });
+
         if (!res.ok) throw new Error("Failed to fetch transactions");
         const data = await res.json();
         setTransactions(data);

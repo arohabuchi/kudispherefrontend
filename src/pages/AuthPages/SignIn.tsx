@@ -23,6 +23,9 @@ interface User {
   updatedAt: string;
 }
 
+
+
+
 export default function SignIn() {
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState("");
@@ -55,7 +58,7 @@ export default function SignIn() {
         description="This is React.js SignIn Tables Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
       />
       <AuthLayout>
-        <SignInForm setUser={setUser} />
+        <SignInForm  />
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
         {/* ✅ Example usage of user */}
