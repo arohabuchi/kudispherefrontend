@@ -173,7 +173,7 @@ export default function SignUpForm({ setUser }: SignUpFormProps) {
     try {
       // ✅ Expect token + user back
       const res = await axios.post<{ token: string; user: User }>(
-        "/api/signup",
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/signup`,
         formData
       );
       localStorage.setItem("token", res.data.token);
@@ -181,7 +181,7 @@ export default function SignUpForm({ setUser }: SignUpFormProps) {
       // ✅ Pass typed user to parent state
       setUser(res.data.user);
 
-      navigate("/verify-forgot-password-otp", { state: { email: formData.email } });
+      navigate(`/verify-forgot-password-otp`, { state: { email: formData.email } });
     } catch (err) {
       const axiosErr = err as AxiosError<{ message?: string }>;
       setError(axiosErr.response?.data?.message || "Registration Failed");

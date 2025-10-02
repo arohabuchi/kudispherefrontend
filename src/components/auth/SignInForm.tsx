@@ -32,7 +32,7 @@ export default function SignInForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.post<{ token: string }>("/api/signin", formData);
+      const res = await axios.post<{ token: string }>(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/signin`, formData);
       const token = res.data.token;
       signIn(token); // use context
     } catch (err: unknown) {
