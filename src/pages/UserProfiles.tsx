@@ -6,6 +6,8 @@ import UserInfoCard from "../components/UserProfile/UserInfoCard";
 import UserAddressCard from "../components/UserProfile/UserAddressCard";
 import PageMeta from "../components/common/PageMeta";
 
+
+
 // Match backend ProfileAddress schema
 export interface ProfileAddress {
   country?: string;
@@ -95,11 +97,18 @@ export default function UserProfiles() {
           <UserMetaCard />
           <UserInfoCard user={user} error={error} isLoading={isLoading} />
           {/* Pass profileAddress and the update function */}
-          <UserAddressCard
+          {/* <UserAddressCard
             profileAddress={user?.profileAddress}
             updateUserAddress={updateUserAddress}
             isLoading={isLoading}
+          /> */}
+
+          <UserAddressCard
+            profileAddress={user?.profileAddress ?? null} // ensure null instead of undefined
+            updateUserAddress={updateUserAddress}
+            isLoading={isLoading}
           />
+
         </div>
       </div>
     </>
