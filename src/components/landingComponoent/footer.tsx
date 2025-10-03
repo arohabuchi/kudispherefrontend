@@ -2,10 +2,11 @@
 import {
     FaWhatsapp,
     FaFacebook,
-    FaGithubSquare,
     FaInstagram,
     FaTwitterSquare
 } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
@@ -20,7 +21,8 @@ const Footer = () => {
                 <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
                     <FaWhatsapp style={{ color: 'green', fontSize: '2rem' }} />
                 </a>
-                <FaGithubSquare  size={30} />
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faTiktok} size="2x" />  </a>
             </div>
             </div>
             <div className='lg:col-span-2 flex justify-between'>
