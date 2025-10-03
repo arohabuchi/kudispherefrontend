@@ -1,6 +1,6 @@
 
 import {
-    FaDribbbleSquare,
+    FaWhatsapp,
     FaFacebook,
     FaGithubSquare,
     FaInstagram,
@@ -17,7 +17,9 @@ const Footer = () => {
                 <FaFacebook size={30}/>
                 <FaInstagram size={30} />
                 <FaTwitterSquare size={30} />
-                <FaDribbbleSquare size={30} />
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                    <FaWhatsapp style={{ color: 'green', fontSize: '2rem' }} />
+                </a>
                 <FaGithubSquare  size={30} />
             </div>
             </div>
