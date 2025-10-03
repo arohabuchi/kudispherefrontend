@@ -37,26 +37,8 @@ const Footer = () => {
                         <li className='py-2 text-sm'>Analytics</li>
                     </ul>
                 </div>
-                 <div>
-                    <h6 className='font-medium text-gray-400'>Solution</h6>
-                    <ul >
-                        <li className='py-2 text-sm'>Analytics</li>
-                        <li className='py-2 text-sm'>Contact Us </li>
-                        <li className='py-2 text-sm'>FAQ</li>
-                        <li className='py-2 text-sm'>Conversion</li>
-                        <li className='py-2 text-sm'>Analytics</li>
-                    </ul>
-                </div>
-                 <div>
-                    <h6 className='font-medium text-gray-400'>Solution</h6>
-                    <ul >
-                        <li className='py-2 text-sm'>Analytics</li>
-                        <li className='py-2 text-sm'>Contact Us </li>
-                        <li className='py-2 text-sm'>FAQ</li>
-                        <li className='py-2 text-sm'>Conversion</li>
-                        <li className='py-2 text-sm'>Analytics</li>
-                    </ul>
-                </div>
+                
+                
 
 
 
