@@ -15,14 +15,15 @@ const Footer = () => {
             <h1 className='w-full text-3xl font-bold text-[#00df9a]'>Kudisphere</h1>
             <p className='py-4'>Borderless transaction on the Go!</p>
             <div className='flex justify-between md:w-[75%] my-6'>
-                <FaFacebook size={30}/>
-                <FaInstagram size={30} />
-                <FaTwitterSquare size={30} />
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-                    <FaWhatsapp style={{ color: 'green', fontSize: '2rem' }} />
+                
+                <a href="" target="_blank" rel="noopener noreferrer"><FaFacebook size={30}/></a>
+                
+                <a href="" target="_blank" rel="noopener noreferrer"><FaInstagram size={30} /></a>
+                
+                <a href="" target="_blank" rel="noopener noreferrer"><FaTwitterSquare size={30} /></a>
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer"><FaWhatsapp style={{ color: 'green', fontSize: '2rem' }} />
                 </a>
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faTiktok} size="2x" />  </a>
+                <a href="" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faTiktok} size="2x" />  </a>
             </div>
             </div>
             <div className='lg:col-span-2 flex justify-between'>
