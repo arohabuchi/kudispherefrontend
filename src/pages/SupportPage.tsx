@@ -78,8 +78,8 @@ export default function SupportPage() {
   return (
     <>
       <PageMeta
-        title="Support Page | TailAdmin - Next.js Admin Dashboard Template"
-        description="This is the support and help page for the dashboard template."
+        title="KUDISPHERE! Send & Receive crypto funds"
+        description="Welcome to kudisphere! go borderless in your financial transaction"
       />
       <PageBreadcrumb pageTitle="Support" />
 

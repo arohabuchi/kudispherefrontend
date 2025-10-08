@@ -48,8 +48,8 @@ export default function SignUp() {
   return (
     <>
       <PageMeta
-        title="React.js SignUp Dashboard | TailAdmin - Next.js Admin Dashboard Template"
-        description="This is React.js SignUp Tables Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
+        title="KUDISPHERE! Send & Receive crypto funds"
+        description="Welcome to kudisphere! go borderless in your financial transaction"
       />
       <AuthLayout>
         {/* ✅ NEW: setUser now matches expected type */}

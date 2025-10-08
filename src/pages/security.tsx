@@ -9,8 +9,8 @@ export default function SecurityPage() {
   return (  
     <>
       <PageMeta
-        title="Security Settings | TailAdmin - Next.js Admin Dashboard Template"
-        description="This is a security settings page for a user dashboard."
+        title="KUDISPHERE! Send & Receive crypto funds"
+        description="Welcome to kudisphere! go borderless in your financial transaction"
       />
       <PageBreadcrumb pageTitle="Security" />
       <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] lg:p-6">

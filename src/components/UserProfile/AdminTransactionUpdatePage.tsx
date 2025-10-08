@@ -117,9 +117,9 @@ export default function AdminTransactions() {
   return (
     <>
       <PageMeta
-        title="Admin Transactions | TailAdmin Dashboard"
-        description="View all user transactions as an admin"
-      />
+              title="KUDISPHERE! Send & Receive crypto funds"
+              description="Welcome to kudisphere! go borderless in your financial transaction"
+            />
       <PageBreadcrumb pageTitle="Admin Transactions" />
 
       <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] lg:p-6">
