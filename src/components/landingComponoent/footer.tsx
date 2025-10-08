@@ -21,17 +21,17 @@ const Footer = () => {
                 {/* <a href="" target="_blank" rel="noopener noreferrer"><FaInstagram size={30} /></a> */}
                 
                 {/* <a href="" target="_blank" rel="noopener noreferrer"><FaTwitterSquare size={30} /></a> */}
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer"><FaWhatsapp style={{ color: 'green', fontSize: '2rem' }} />
+                <a href="https://wa.me/+2348116306083" target="_blank" rel="noopener noreferrer"><FaWhatsapp style={{ color: 'green', fontSize: '2rem' }} /> Live Chat
                 </a>
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer"><FaWhatsapp style={{ color: 'green', fontSize: '2rem' }} />
+                <a href="https://whatsapp.com/channel/0029VbBrnUPL7UVUkoKtP23q" target="_blank" rel="noopener noreferrer"><FaWhatsapp style={{ color: 'green', fontSize: '2rem' }} /> Join Channel
                 </a>
                 {/* <a href="" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faTiktok} size="2x" />  </a> */}
             </div>
             </div>
-            <div className='lg:col-span-2 flex justify-between'>
-                <div>
-                    <h6 className='font-medium text-gray-400'>Solution</h6>
-                    <ul >
+            <div className='lg:col-span-2 pt-5 flex justify-between'>
+                <div  className='lg:col-span-2 flex justify-between'>
+                    {/* <h6 className='font-medium text-gray-400'>Solution</h6> */}
+                    <ul  className='lg:col-span-2  gap-5 flex justify-between'>
                         <li className='py-2 text-sm'>Analytics</li>
                         <li className='py-2 text-sm'>Contact Us </li>
                         <li className='py-2 text-sm'>FAQ</li>

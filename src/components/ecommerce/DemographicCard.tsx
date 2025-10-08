@@ -60,7 +60,7 @@ export default function DemographicCard() {
               WhatsApp
             </p>
           </div>
-            <a className="px-5 py-2 text-sm font-semibold text-white bg-green-500 rounded-full hover:bg-green-600" href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">Connect</a>
+            <a className="px-5 py-2 text-sm font-semibold text-white bg-green-500 rounded-full hover:bg-green-600" href="https://wa.me/+2348116306083" target="_blank" rel="noopener noreferrer">Connect</a>
           
         </div>
 
@@ -76,7 +76,7 @@ export default function DemographicCard() {
               WhatsApp Channel
             </p>
           </div>
-            <a className="px-5 py-2 text-sm font-semibold text-white bg-green-500 rounded-full hover:bg-green-600" href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">Connect</a>
+            <a className="px-5 py-2 text-sm font-semibold text-white bg-green-500 rounded-full hover:bg-green-600" href="https://whatsapp.com/channel/0029VbBrnUPL7UVUkoKtP23q" target="_blank" rel="noopener noreferrer">Connect</a>
         </div>
       </div>
       <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">

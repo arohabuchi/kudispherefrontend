@@ -13,7 +13,7 @@ function NewsLetters() {
                     {/* <input className='p-3 bg-white flex w-full rounded-md text-black' type="number" placeholder='Enter whatsapp number'  /> */}
                     <button
                         onClick={() =>
-                        window.open("https://whatsapp.com/channel/0029Vb6GRXk3WHTWpaKf2K23", "_blank")
+                        window.open("https://whatsapp.com/channel/0029VbBrnUPL7UVUkoKtP23q", "_blank")
                         }
                         className="bg-[#00df9a] text-black rounded-md font-medium w-[200px] ml-4 my-6 px-6 py-3"
                     >
