@@ -1932,7 +1932,7 @@ const handleTransferNow = (e: React.FormEvent<HTMLFormElement>) => {
                 onChange={(e) => setTransactionAmount(e.target.value)}
                 required
               />
-              <span className="px-3 py-2 text-gray-600 dark:text-gray-400 font-medium">USD</span>
+              {/* <span className="px-3 py-2 text-gray-600 dark:text-gray-400 font-medium">USD</span> */}
             </div>
           </div>
 
