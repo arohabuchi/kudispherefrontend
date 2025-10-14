@@ -20,7 +20,8 @@ const Badge = ({ variant, children }: { variant: string; children: React.ReactNo
 
 // ✅ Table Components
 const Table = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <table className={`border-collapse ${className}`}>{children}</table>
+    <div className="overflow-x-auto">
+  <table className={`border-collapse ${className}`}>{children}</table></div>
 );
 
 const TableHeader = ({ children }: { children: React.ReactNode }) => (
