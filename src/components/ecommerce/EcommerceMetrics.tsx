@@ -196,7 +196,7 @@ interface ModalProps {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4">
+    <div className="absolute top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4 md:inset-0 md:items-center md:justify-center">
       <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-full mx-auto 
 max-w-xs sm:max-w-lg md:max-w-2xl 
 p-4 sm:p-6 lg:p-10 relative">
@@ -287,7 +287,7 @@ interface PaymentModalProps {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4">
+    <div className="absolute top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4 md:inset-0 md:items-center md:justify-center">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg p-6 relative">
         {/* Close button */}
         <button
