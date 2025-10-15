@@ -217,142 +217,6 @@ p-4 sm:p-6 lg:p-10 relative">
 };
 
 
-
-// --- Deposit Modals (Existing/Modified) ---
-
-// Payment Modal (Crypto Deposit) - Retained structure for deposit flow
-// const PaymentModal = ({ isOpen, onClose, amountGBP, coinData, userId, coinType, fetchProfile }) => {
-//   if (!isOpen) return null;
-
-//   const btcRate = 42142.11; // example static rate
-//   // Assuming the deposit amount is in USD, despite the prop name 'amountGBP'
-//   const amountUSD = Number(amountGBP);
-//   const btcAmount = amountUSD ? (amountUSD / btcRate).toFixed(8) : "0";
-
-//   const handleDeposit = async () => {
-//     try {
-//       // NOTE: For brevity, keeping the original backend call structure (using localStorage and alert)
-//       // but in a real app, replace alert() with a custom modal UI.
-//       const token = localStorage.getItem("token");
-
-//       const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/${userId}/deposit`, {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//           "x-auth-token": token,
-//         },
-//         body: JSON.stringify({
-//           amount: amountUSD,
-//           coinType: coinType,
-//           cryptoAddress: coinData?.name,
-//           transactionHash: "null", // Placeholder
-//         }),
-//       });
-
-//       if (!res.ok) throw new Error("Failed to submit deposit");
-
-//       const data = await res.json();
-//       console.log("Deposit submitted:", data);
-
-//       await fetchProfile();
-
-//       // IMPORTANT: Replace alert with a custom modal UI in a real app
-//       console.log("Deposit submitted successfully!"); 
-//       onClose();
-//     } catch (error) {
-//       console.error("Error submitting deposit:", error.message);
-//       // IMPORTANT: Replace alert with a custom modal UI in a real app
-//       console.error("Error submitting deposit");
-//     }
-//   };
-
-//   return (
-//     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4">
-//       <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg p-6 relative">
-//         {/* Close button */}
-//         <button
-//           onClick={onClose}
-//           className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200"
-//         >
-//           <XIcon className="size-6" />
-//         </button>
-
-//         <div className="space-y-6">
-//           <h2 className="text-xl font-bold text-gray-900 mb-4">Crypto Deposit</h2>
-//           {/* Address + Frequency */}
-//           <div className="flex justify-between items-center">
-//             <div>
-//               <p className="text-sm font-medium text-gray-700">Please Send to Address</p>
-//               <div className="flex items-center space-x-2">
-//                 <p className="text-xs text-gray-500 break-all">
-//                   {coinData?.name || "Loading..."}
-//                 </p>
-
-//                 {/* Copy Button */}
-//                 <button
-//                   onClick={() => {
-//                     if (coinData?.name) {
-//                       document.execCommand('copy'); 
-//                       // IMPORTANT: Replace alert with a custom modal UI in a real app
-//                       console.log("Copied to clipboard!");
-//                     }
-//                   }}
-//                   className="text-green-600 hover:text-green-800 text-xs font-medium"
-//                 >
-//                   Copy
-//                 </button>
-//               </div>
-//             </div>
-//             <div>
-//               <label className="text-sm font-medium text-gray-700 mr-2">Payment Frequency</label>
-//               <select className="border rounded px-2 py-1 text-sm">
-//                 <option>Monthly</option>
-//                 <option>Weekly</option>
-//               </select>
-//             </div>
-//           </div>
-
-//           {/* QR + Details */}
-//           <div className="flex space-x-6">
-//             <div>
-//               {coinData?.image ? (
-//                 <img
-//                   src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/${coinData.image}`}
-//                   alt={`${coinData.name} QR Code`}
-//                   className="w-36 h-36"
-//                   onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/144x144/22c55e/ffffff?text=QR+Code+Missing" }} // Added fallback
-//                 />
-//               ) : (
-//                 <p className="text-xs text-gray-400 w-36 h-36 flex items-center justify-center border rounded">Loading QR...</p>
-//               )}
-//             </div>
-//             <div className="bg-gray-50 rounded-xl p-4 flex-1">
-//               <p className="font-semibold">Total Deposit</p>
-//               <p className="text-xl font-bold">${amountUSD.toFixed(2) || 0} USD</p>
-//               <p className="mt-2 text-sm">Amount in {coinType}</p>
-//               <p className="font-mono">{btcAmount} {coinType}</p>
-//               <button
-//                 onClick={handleDeposit}
-//                 className="mt-4 w-full bg-purple-600 text-white rounded-lg py-2 font-medium hover:bg-purple-700 transition-colors"
-//               >
-//                 Open in Wallet
-//               </button>
-//             </div>
-//           </div>
-
-//           {/* Footer */}
-//           <div className="flex justify-between text-xs text-gray-500">
-//             <p>
-//               Time Remaining:{" "}
-//               <span className="font-semibold text-purple-600">15:32</span>
-//             </p>
-//             <p>1 BTC = {btcRate.toLocaleString()} GBP</p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 interface CoinData {
   name?: string;
   image?: string;
@@ -379,9 +243,9 @@ interface PaymentModalProps {
 }) => {
   if (!isOpen) return null;
 
-  const btcRate = 42142.11; // example static rate
+  // const btcRate = 42142.11; // example static rate
   const amountUSD: number = Number(amountGBP);
-  const btcAmount: string = amountUSD ? (amountUSD / btcRate).toFixed(8) : "0";
+  const amountToReceive: string = amountUSD ? (amountUSD * 0.1).toFixed(8) : "0";
 
   const handleDeposit = async (): Promise<void> => {
     try {
@@ -397,6 +261,7 @@ interface PaymentModalProps {
           amount: amountUSD,
           coinType: coinType,
           cryptoAddress: coinData?.name,
+          amountToReceive: amountToReceive,
           transactionHash: "null", // Placeholder
         }),
       });
@@ -484,9 +349,10 @@ interface PaymentModalProps {
             <div className="bg-gray-50 rounded-xl p-4 flex-1">
               <p className="font-semibold">Total Deposit</p>
               <p className="text-xl font-bold">${amountUSD.toFixed(2) || 0} USD</p>
-              <p className="mt-2 text-sm">Amount in {coinType}</p>
+              <p className="text-xl font-bold">Amount To Received: {(amountUSD*0.1).toFixed(2) || 0} USD</p>
+              {/* <p className="mt-2 text-sm">Amount in {coinType}</p> */}
               <p className="font-mono">
-                {btcAmount} {coinType}
+                {/* {btcAmount} {coinType} */}
               </p>
               <button
                 onClick={handleDeposit}
@@ -509,123 +375,6 @@ interface PaymentModalProps {
 };
 
 
-
-// Bank Payment Modal (Bank Deposit) - Retained structure for deposit flow
-// const BankPaymentModal = ({ isOpen, onClose, amountGBP, bankDetails, onSubmitDeposit, isSubmitting }) => {
-//   if (!isOpen || !bankDetails) return null;
-
-//   // Constants and Calculations (assuming amountGBP is the deposit amount in USD)
-//   const NGN_RATE = bankDetails.usdtRate ; 
-//   const depositAmountUSD = Number(amountGBP); 
-//   const feePerUSDT = bankDetails.feePerUSDT || 0; 
-//   console.log(NGN_RATE)
-
-//   // Calculate fees and final received amount (in USD/USDT equivalent)
-  
-//   const feeUSD = (depositAmountUSD * (feePerUSDT / 100));
-//   const amountToReceive = (depositAmountUSD - feeUSD);
-
-
-  
-//   // Calculate NGN equivalent for display
-//   const amountToReceiveNGN = (amountToReceive * NGN_RATE).toLocaleString('en-US', { maximumFractionDigits: 0 });
-
-//   // Handler for submitting the bank deposit
-//   const handleSubmission = () => {
-//     if (!bankDetails || !depositAmountUSD || depositAmountUSD <= 0) {
-//       console.error("Missing required bank details or deposit amount.");
-//       return;
-//     }
-
-//     const payload = {
-//       amount: depositAmountUSD, // amount (in USD/USDT)
-//       bankName: bankDetails.bankName,
-//       accountNumber: bankDetails.accountNumber,
-//       accountHolderName: bankDetails.accountHolderName,
-//       feePerUSDT: feePerUSDT, // feePerUSDT (the percentage value)
-//       amountToReceive: amountToReceive, // AmountToReceive (in USD/USDT equivalent)
-//     };
-//     console.log("amountToReceive", amountToReceive)
-
-//     onSubmitDeposit(payload);
-//   };
-
-//   return (
-//     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4">
-//       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative">
-//         {/* Close */}
-//         <button
-//           onClick={onClose}
-//           className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200"
-//         >
-//           <XIcon className="size-6" />
-//         </button>
-
-//         {/* Header */}
-//         <h2 className="text-lg font-bold text-center text-gray-800 mb-4">
-//           Confirm Bank Deposit
-//         </h2>
-//         <p className="text-sm text-center text-gray-600 mb-6">
-//           Please transfer **${depositAmountUSD.toFixed(2)} USD** to the account details below.
-//         </p>
-
-//         {/* Summary */}
-//         <h3 className="mt-4 mb-2 font-semibold text-gray-800">TRANSFER DETAILS</h3>
-//         <div className="space-y-3 text-sm text-gray-600 bg-gray-50 p-4 rounded-lg border">
-//           <div className="flex justify-between">
-//             <span className="font-medium text-gray-700">Account Name</span>
-//             <span className="font-semibold text-gray-800">{bankDetails.accountHolderName || 'N/A'}</span>
-//           </div>
-//           <div className="flex justify-between">
-//             <span className="font-medium text-gray-700">Bank Name</span>
-//             <span className="font-semibold text-gray-800">{bankDetails.bankName || 'N/A'}</span>
-//           </div>
-//           <div className="flex justify-between">
-//             <span className="font-medium text-gray-700">Account No.</span>
-//             <span className="font-semibold text-gray-800">{bankDetails.accountNumber || 'N/A'}</span>
-//           </div>
-//           <div className="flex justify-between">
-//             <span className="font-medium text-gray-700">Fee per USDT</span>
-//             <span className="font-semibold text-red-600">{feePerUSDT}%</span>
-//           </div>
-//         </div>
-
-//         {/* Total */}
-//         <div className="mt-4 border-t pt-3">
-//             <h3 className="mb-1 font-semibold text-gray-800">Conversion Summary</h3>
-//             <div className="flex justify-between text-sm text-gray-600">
-//                 <span>Total Amount Deposited</span>
-//                 <span>${depositAmountUSD.toFixed(2)} USD</span>
-//             </div>
-//             <div className="flex justify-between text-sm text-gray-600">
-//                 <span>Fee Deducted ({feePerUSDT}%)</span>
-//                 <span>-${feeUSD.toFixed(2)} USD</span>
-//             </div>
-//             <div className="flex justify-between items-center mt-3 pt-2 border-t font-bold text-lg text-gray-800">
-//                 <span>You will Receive</span>
-//                 <div className="text-right">
-//                     <p className="text-green-600">${amountToReceive.toFixed(2)}</p>
-//                     <p className="text-xs text-gray-500">~ NGN {amountToReceiveNGN}</p>
-//                 </div>
-//             </div>
-//             <p className="text-xs text-gray-500 text-right mt-1">Rate: $1 = NGN {NGN_RATE}</p>
-//         </div>
-
-
-//         {/* Slide Button */}
-//         <div className="mt-6">
-//           <button 
-//             onClick={handleSubmission}
-//             disabled={isSubmitting}
-//             className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold shadow-md hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
-//           >
-//             {isSubmitting ? 'Submitting...' : 'I have completed the transfer →'}
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 interface BankDetails {
   bankName: string;
   accountNumber: string;
