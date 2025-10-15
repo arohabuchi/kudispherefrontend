@@ -245,7 +245,9 @@ interface PaymentModalProps {
 
   // const btcRate = 42142.11; // example static rate
   const amountUSD: number = Number(amountGBP);
-  const amountToReceive: string = amountUSD ? (amountUSD * 0.1).toFixed(8) : "0";
+  const amountToReceiverate: string = amountUSD ? (amountUSD * 0.1).toFixed(8) : "0";
+  const amountToReceivecalc: number = Number(amountToReceiverate);
+  const amountToReceive: string = amountUSD ? (amountUSD - amountToReceivecalc).toFixed(8) : "0";
 
   const handleDeposit = async (): Promise<void> => {
     try {
