@@ -447,7 +447,7 @@ interface PaymentModalProps {
                   onClick={() => {
                     if (coinData?.name) {
                       navigator.clipboard.writeText(coinData.name);
-                      console.log("Copied to clipboard!");
+                      alert("Copied to clipboard!");
                     }
                   }}
                   className="text-green-600 hover:text-green-800 text-xs font-medium"
