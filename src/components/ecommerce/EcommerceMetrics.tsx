@@ -720,7 +720,7 @@ interface BankPaymentModalProps {
           Confirm Bank Deposit
         </h2>
         <p className="text-sm text-center text-gray-600 mb-6">
-          Please transfer <strong>${depositAmountUSD.toFixed(2)} USD</strong> to
+          Please transfer<strong>~ NGN {amountToReceiveNGN} </strong> <strong>${depositAmountUSD.toFixed(2)} USD</strong>  to
           the account details below.
         </p>
 
