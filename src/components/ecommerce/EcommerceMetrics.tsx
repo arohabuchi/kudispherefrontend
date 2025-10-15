@@ -1033,6 +1033,36 @@ interface CryptoWithdrawalModalProps {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [userId, setUserId] = useState<string | null>(null);
 
+
+
+
+  // Fetch conversion fee details
+  useEffect(() => {
+    const fetchCryptoDetails = async (): Promise<void> => {
+      try {
+        const res = await axios.get<{ bankDetails?: { feePerUSDT: number } }>(
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`
+        );
+        if (res.data?.bankDetails) {
+          const fee = res.data.bankDetails.feePerUSDT;
+          setFeePerUSDT(fee);
+          setAmountToReceive(
+            withdrawalAmount - withdrawalAmount * (fee / 100)
+          );
+        }
+      } catch (err) {
+        console.error("Error fetching crypto details", err);
+      }
+    };
+    if (isOpen) fetchCryptoDetails();
+  }, [isOpen, withdrawalAmount]);
+
+  // Fetch userId
+
+
+
+
+  
   // Fetch conversion fee details
   useEffect(() => {
     const fetchCryptoDetails = async (): Promise<void> => {
@@ -1057,6 +1087,22 @@ interface CryptoWithdrawalModalProps {
   // Fetch userId
   useEffect(() => {
     const fetchUserId = async (): Promise<void> => {
+ //////////////////////
+       try {
+        const res = await axios.get<{ bankDetails?: { feePerUSDT: number } }>(
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/admin/bank-details/first`
+        );
+        if (res.data?.bankDetails) {
+          const fee = res.data.bankDetails.feePerUSDT;
+          setFeePerUSDT(fee);
+          setAmountToReceive(
+            withdrawalAmount - withdrawalAmount * (fee / 100)
+          );
+        }
+      } catch (err) {
+        console.error("Error fetching crypto details", err);
+      }/////////////////////////////////////
+    
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get<{ _id: string }>(
