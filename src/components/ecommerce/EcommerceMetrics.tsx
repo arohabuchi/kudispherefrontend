@@ -455,13 +455,7 @@ interface PaymentModalProps {
                 </button>
               </div>
             </div>
-            <div>
-              <label className="text-sm font-medium text-gray-700 mr-2">Payment Frequency</label>
-              <select className="border rounded px-2 py-1 text-sm">
-                <option>Monthly</option>
-                <option>Weekly</option>
-              </select>
-            </div>
+           
           </div>
 
           {/* QR + Details */}
@@ -496,18 +490,15 @@ interface PaymentModalProps {
                 onClick={handleDeposit}
                 className="mt-4 w-full bg-purple-600 text-white rounded-lg py-2 font-medium hover:bg-purple-700 transition-colors"
               >
-                Open in Wallet
+                I Have Paid
               </button>
             </div>
           </div>
 
           {/* Footer */}
           <div className="flex justify-between text-xs text-gray-500">
-            <p>
-              Time Remaining:{" "}
-              <span className="font-semibold text-purple-600">15:32</span>
-            </p>
-            <p>1 BTC = {btcRate.toLocaleString()} GBP</p>
+            
+            {/* <p>1 BTC = {btcRate.toLocaleString()} GBP</p> */}
           </div>
         </div>
       </div>
@@ -720,7 +711,7 @@ interface BankPaymentModalProps {
           Confirm Bank Deposit
         </h2>
         <p className="text-sm text-center text-gray-600 mb-6">
-          Please transfer<strong>~ NGN {amountToReceiveNGN} </strong> <strong>${depositAmountUSD.toFixed(2)} USD</strong>  to
+          Please transfer<strong>~ NGN {amountToReceiveNGN} </strong> or <strong>${depositAmountUSD.toFixed(2)} USD</strong>  to
           the account details below.
         </p>
 
