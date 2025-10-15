@@ -352,7 +352,7 @@ interface PaymentModalProps {
             <div className="bg-gray-50 rounded-xl p-4 flex-1">
               <p className="font-semibold">Total Deposit</p>
               <p className="text-xl font-bold">${amountUSD.toFixed(2) || 0} USD</p>
-              <p className="text-xl font-bold">Amount To Received: {(amountUSD*0.1).toFixed(2) || 0} USD</p>
+              <p className="text-xl font-bold">Amount To Received: {amountToReceive || 0} USD</p>
               {/* <p className="mt-2 text-sm">Amount in {coinType}</p> */}
               <p className="font-mono">
                 {/* {btcAmount} {coinType} */}
