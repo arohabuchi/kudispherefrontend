@@ -430,11 +430,12 @@ interface PaymentModalProps {
         </button>
 
         <div className="space-y-6">
+          <div>
           <h2 className="text-xl font-bold text-gray-900 mb-4">Crypto Deposit</h2>
 
           {/* Address + Frequency */}
           <div className="flex justify-between items-center">
-            <div>
+            <div className="max-w-md mx-auto">
               <p className="text-sm font-medium text-gray-700">Please Send to Address</p>
               <div className="flex items-center space-x-2">
                 <p className="text-xs text-gray-500 break-all">
@@ -456,6 +457,7 @@ interface PaymentModalProps {
               </div>
             </div>
            
+          </div>
           </div>
 
           {/* QR + Details */}
