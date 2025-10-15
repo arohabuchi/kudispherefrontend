@@ -705,7 +705,7 @@ interface BankPaymentModalProps {
   };
 
   return (
-    <div className="fixed inset-9 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4">
+    <div className="absolute top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4 md:inset-0 md:items-center md:justify-center">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative">
         {/* Close */}
         <button
@@ -1866,6 +1866,7 @@ const handleTransferNow = (e: React.FormEvent<HTMLFormElement>) => {
 
   return (
     <>
+    
       <div className=" bg-gray-50 dark:bg-gray-900 p-4 sm:p-6 font-sans">
         <header className="mb-8">
             <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-2">Wallet Dashboard</h1>
