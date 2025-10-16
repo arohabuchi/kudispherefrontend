@@ -36,8 +36,11 @@ export default function SignInForm() {
       const token = res.data.token;
       signIn(token); // use context
     } catch (err: unknown) {
-      const axiosErr = err as AxiosError<{ message?: string }>; // ✅ safe cast
-      setError(axiosErr.response?.data?.message || "Login failed");
+      const axiosErr = err as AxiosError<{ error?: string, msg?: string }>; // ✅ safe cast
+      const errorMessage = axiosErr.response?.data?.error || axiosErr.response?.data?.msg || "Login failed: Unknown error";
+      setError(errorMessage);
+      console.error("Login Error: ", axiosErr.response?.data);
+      console.log(errorMessage);
     }
   };
 
