@@ -21,7 +21,7 @@ export default function AdminCoinManager() {
   useEffect(() => {
     const fetchCoins = async () => {
       try {
-        const res = await axios.get<AdminCoin[]>("${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/all");
+        const res = await axios.get<AdminCoin[]>(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/images/all`);
         setCoins(res.data);
       } catch (err) {
         console.error("Failed to fetch coins:", err);
